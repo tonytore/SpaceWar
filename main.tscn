@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfinihenhj730"]
+[gd_scene load_steps=7 format=3 uid="uid://dfinihenhj730"]
 
 [ext_resource type="Texture2D" uid="uid://dtd8jte52vx47" path="res://back_2.png" id="1_u7yxo"]
 [ext_resource type="PackedScene" uid="uid://btr8lktnd48c1" path="res://Player/player.tscn" id="2_rb5p1"]
 [ext_resource type="PackedScene" uid="uid://ogwpm8e7j3eu" path="res://Projectile/enemy.tscn" id="3_bt00d"]
 [ext_resource type="Script" path="res://Spawn_Enemy.gd" id="4_eiyr1"]
+[ext_resource type="Script" path="res://Score.gd" id="5_ynb7d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5i5bg"]
+font_size = 36
 
 [node name="main" type="Node2D"]
 
@@ -21,5 +25,14 @@ enemy_scene = ExtResource("3_bt00d")
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 autostart = true
+
+[node name="Score" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 10.0
+offset_right = 167.0
+offset_bottom = 63.0
+text = "score:0"
+label_settings = SubResource("LabelSettings_5i5bg")
+script = ExtResource("5_ynb7d")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="spawn_enemy_ship"]
