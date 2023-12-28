@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dtd8jte52vx47" path="res://back_2.png" id="1_u7yxo"]
 [ext_resource type="PackedScene" uid="uid://btr8lktnd48c1" path="res://Player/player.tscn" id="2_rb5p1"]
-[ext_resource type="Script" path="res://Player/player.gd" id="3_2xq72"]
+[ext_resource type="PackedScene" uid="uid://dmib045mc8ccg" path="res://Projectile/laser.tscn" id="3_8mga7"]
 
 [node name="main" type="Node2D"]
 
@@ -13,5 +13,6 @@ texture = ExtResource("1_u7yxo")
 
 [node name="Player" parent="." instance=ExtResource("2_rb5p1")]
 position = Vector2(288, 882)
-script = ExtResource("3_2xq72")
-metadata/_edit_group_ = true
+
+[node name="Laser" parent="." instance=ExtResource("3_8mga7")]
+position = Vector2(130, 868)

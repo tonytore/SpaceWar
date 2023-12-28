@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmib045mc8ccg"]
+
+[ext_resource type="Script" path="res://Projectile/laser.gd" id="1_58x77"]
+[ext_resource type="Texture2D" uid="uid://cvbdw7pxwi0pr" path="res://kenney_space-shooter-redux/PNG/Lasers/laserRed04.png" id="1_xlxkv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_umwvm"]
+radius = 6.0
+height = 36.0
+
+[node name="Laser" type="Area2D"]
+script = ExtResource("1_58x77")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xlxkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_umwvm")
