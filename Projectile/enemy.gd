@@ -10,5 +10,5 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	self.queue_free()
-	GameState.score+=10
+		self.queue_free()
+		GameState.score+=10

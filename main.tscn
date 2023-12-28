@@ -1,20 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfinihenhj730"]
+[gd_scene load_steps=9 format=3 uid="uid://dfinihenhj730"]
 
 [ext_resource type="Texture2D" uid="uid://dtd8jte52vx47" path="res://back_2.png" id="1_u7yxo"]
 [ext_resource type="PackedScene" uid="uid://btr8lktnd48c1" path="res://Player/player.tscn" id="2_rb5p1"]
 [ext_resource type="PackedScene" uid="uid://ogwpm8e7j3eu" path="res://Projectile/enemy.tscn" id="3_bt00d"]
 [ext_resource type="Script" path="res://Spawn_Enemy.gd" id="4_eiyr1"]
 [ext_resource type="Script" path="res://Score.gd" id="5_ynb7d"]
+[ext_resource type="Script" path="res://GameOver.gd" id="6_tga4k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5i5bg"]
 font_size = 36
 
+[sub_resource type="LabelSettings" id="LabelSettings_vtaop"]
+font_size = 52
+
 [node name="main" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(296, 481)
-scale = Vector2(0.363281, 0.699219)
+position = Vector2(516.5, 631.5)
+scale = Vector2(1.34424, 1.05794)
 texture = ExtResource("1_u7yxo")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_rb5p1")]
 position = Vector2(288, 882)
@@ -34,5 +39,23 @@ offset_bottom = 63.0
 text = "score:0"
 label_settings = SubResource("LabelSettings_5i5bg")
 script = ExtResource("5_ynb7d")
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 426.0
+offset_right = 423.0
+offset_bottom = 501.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_vtaop")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_tga4k")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="spawn_enemy_ship"]

@@ -9,4 +9,5 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	self.queue_free()
+	if area.is_in_group('enemy'):
+		self.queue_free()
