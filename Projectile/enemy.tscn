@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ogwpm8e7j3eu"]
+
+[ext_resource type="Texture2D" uid="uid://drxnjuax6fh32" path="res://kenney_space-shooter-redux/PNG/Enemies/enemyBlue5.png" id="1_0tpjw"]
+[ext_resource type="Script" path="res://Projectile/enemy.gd" id="1_y785x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jup02"]
+radius = 47.8017
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_y785x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0tpjw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jup02")
